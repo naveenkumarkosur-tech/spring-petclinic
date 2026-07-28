@@ -24,8 +24,8 @@ pipeline {
         echo "Source code already checked out by Jenkins"
     }
 }
-            }
-        }
+            
+        
 
         stage('Compile') {
             steps {
