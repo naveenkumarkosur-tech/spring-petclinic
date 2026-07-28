@@ -19,11 +19,11 @@ pipeline {
 
     stages {
 
-        stage('Checkout Source') {
-            steps {
-                git branch: 'main',
-                credentialsId: 'github-creds',
-                url: 'https://github.com/YOUR_USERNAME/spring-petclinic.git'
+       stage('Checkout Source') {
+    steps {
+        echo "Source code already checked out by Jenkins"
+    }
+}
             }
         }
 
