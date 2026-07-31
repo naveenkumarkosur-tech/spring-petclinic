@@ -9,7 +9,7 @@ pipeline {
 
     environment {
         AWS_REGION = "ap-south-1"
-        AWS_ACCOUNT_ID = "YOUR_ACCOUNT_ID"   // Replace with your AWS Account ID
+        AWS_ACCOUNT_ID = "139929688131"   // Replace with your AWS Account ID
         ECR_REPO = "spring-petclinic"
 
         IMAGE_NAME = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}"
