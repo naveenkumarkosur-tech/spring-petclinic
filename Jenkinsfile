@@ -43,9 +43,17 @@ pipeline {
         }
 
         stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
+    steps {
+        withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+            sh """
+            mvn sonar:sonar \
+            -Dsonar.projectKey=spring-petclinic \
+            -Dsonar.host.url=http://13.233.208.122:9000 \
+            -Dsonar.login=$SONAR_TOKEN
+            """
+        }
+    }
+}
                 }
             }
         }
