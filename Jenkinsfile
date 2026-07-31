@@ -51,9 +51,9 @@ pipeline {
             -Dsonar.host.url=http://13.233.208.122:9000 \
             -Dsonar.login=$SONAR_TOKEN
             """
-        }
-    }
-}
+        
+    
+
                 }
             }
         }
