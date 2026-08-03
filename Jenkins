@@ -26,7 +26,18 @@ pipeline {
                 url: 'https://github.com/YOUR_USERNAME/spring-petclinic.git'
             }
         }
-
+stage('Check Java') {
+    steps {
+        sh '''
+            java -version
+            javac -version
+            mvn -version
+            echo $JAVA_HOME
+            which java
+            which javac
+        '''
+    }
+}
         stage('Compile') {
             steps {
                 sh 'mvn clean compile'
