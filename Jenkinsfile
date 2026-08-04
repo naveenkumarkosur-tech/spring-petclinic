@@ -24,6 +24,38 @@ pipeline {
             }
         }
 
+        stage('Check Java Environment') {
+    steps {
+        sh '''
+            echo "=============================="
+            echo "JAVA_HOME=$JAVA_HOME"
+
+            echo "=============================="
+            java -version
+
+            echo "=============================="
+            javac -version
+
+            echo "=============================="
+            mvn -version
+
+            echo "=============================="
+            which java
+
+            echo "=============================="
+            which javac
+
+            echo "=============================="
+            readlink -f $(which java)
+
+            echo "=============================="
+            readlink -f $(which javac)
+
+            echo "=============================="
+            env | grep JAVA
+        '''
+    }
+}
         stage('Compile') {
             steps {
                 sh 'mvn clean compile'
