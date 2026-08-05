@@ -52,7 +52,7 @@ pipeline {
             readlink -f $(which javac)
 
             echo "=============================="
-            env | grep JAVA
+            env | grep JAVA || true
         '''
     }
 }
