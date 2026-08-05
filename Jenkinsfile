@@ -91,6 +91,17 @@ stage('SonarQube Analysis') {
             }
         }
 
+        stage('Debug Trivy') {
+    steps {
+        sh '''
+        whoami
+        pwd
+        ls -la
+        which trivy
+        trivy --version
+        '''
+    }
+}
         stage('Trivy File Scan') {
             steps {
                 sh 'trivy fs .'
