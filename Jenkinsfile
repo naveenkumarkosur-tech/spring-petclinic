@@ -73,23 +73,16 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
-
-        stage('SonarQube Analysis') {
+stage('SonarQube Analysis') {
     steps {
-        withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
-            sh """
-            mvn sonar:sonar \
-            -Dsonar.projectKey=spring-petclinic \
-            -Dsonar.host.url=http://13.206.22.36:9000 \
-            -Dsonar.login=$SONAR_TOKEN
-            """
-        
-    
-
-                }
-            }
+        withSonarQubeEnv('SonarQube') {
+            sh '''
+                mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+                  -Dsonar.projectKey=spring-petclinic
+            '''
         }
-
+    }
+}
         stage('Quality Gate') {
             steps {
                 timeout(time: 5, unit: 'MINUTES') {
