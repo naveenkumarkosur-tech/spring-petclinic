@@ -158,10 +158,7 @@ pipeline {
             echo 'CI Pipeline Failed'
         }
 
-        always {
-           // cleanWs()
-        }
 
     }
 
-}
+
