@@ -80,7 +80,7 @@ pipeline {
             sh """
             mvn sonar:sonar \
             -Dsonar.projectKey=spring-petclinic \
-            -Dsonar.host.url=https://13.233.208.122:9000 \
+            -Dsonar.host.url=http://13.233.208.122:9000 \
             -Dsonar.login=$SONAR_TOKEN
             """
         
