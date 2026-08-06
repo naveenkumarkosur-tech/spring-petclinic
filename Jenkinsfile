@@ -64,16 +64,20 @@ pipeline {
         '''
     }
 }
-
-        stage('Unit Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
+stage('Unit Test') {
+    steps {
+        sh '''
+        mkdir -p target
+        mvn test
+        '''
+    }
+}
 
         stage('Package') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                sh '''
+        mvn package -DskipTests
+        '''
             }
         }
 stage('SonarQube Analysis') {
