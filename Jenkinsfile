@@ -56,11 +56,14 @@ pipeline {
         '''
     }
 }
-        stage('Compile') {
-            steps {
-                sh 'mvn clean compile'
-            }
-        }
+       stage('Compile') {
+    steps {
+        sh '''
+        mkdir -p target
+        mvn clean compile
+        '''
+    }
+}
 
         stage('Unit Test') {
             steps {
