@@ -82,7 +82,7 @@ stage('Unit Test') {
         }
 stage('SonarQube Analysis') {
     steps {
-        withSonarQubeEnv('SonarQube') {
+        withSonarQubeEnv('SonarQube-Server') {
             sh '''
                 mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar \
                   -Dsonar.projectKey=spring-petclinic
