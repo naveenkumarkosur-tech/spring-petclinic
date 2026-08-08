@@ -119,7 +119,7 @@ stage('Quality Gate') {
     steps {
         git branch: 'main',
             credentialsId: 'github-creds',
-            url: ''
+            url: 'https://github.com/naveenkumarkosur-tech/spring-petclinic.git'
     }
 }
 
