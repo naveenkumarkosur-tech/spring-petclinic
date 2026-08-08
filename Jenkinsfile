@@ -115,6 +115,13 @@ stage('Quality Gate') {
                 sh 'trivy fs .'
             }
         }
+        stage('Clone') {
+    steps {
+        git branch: 'main',
+            credentialsId: 'github-creds',
+            url: ''
+    }
+}
 
         stage('Docker Build') {
             steps {
